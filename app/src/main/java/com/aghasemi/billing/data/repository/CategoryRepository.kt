@@ -11,7 +11,7 @@ class CategoryRepository(application: Application) {
         categoryLocalDataSource = CategoryLocalDataSource(application)
     }
 
-    fun getCategoryList(categoryType: Int): LiveData<List<Category>> {
+    fun getCategoryList(categoryType: String): LiveData<List<Category>> {
         return categoryLocalDataSource.getCategoryList(categoryType)
     }
 }

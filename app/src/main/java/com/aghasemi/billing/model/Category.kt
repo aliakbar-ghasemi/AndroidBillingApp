@@ -9,9 +9,9 @@ data class Category(
     val id: Int = 0,
     val title: String,
     val parentId: Int,
-    /**
-     * 1:income
-     * 2:outcome
-     * */
-    val type: Int
-)
+    val type: Type
+) {
+    enum class Type {
+        Income, Outcome
+    }
+}

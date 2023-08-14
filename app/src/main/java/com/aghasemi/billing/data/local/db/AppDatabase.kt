@@ -66,9 +66,8 @@ abstract class AppDatabase : RoomDatabase() {
             //read from assets
             return try {
                 setOf(
-                    Category(0,  "cat1",  0,  1),
-                    Category(0,  "cat2",  0, 1),
-                    Category(0,  "cat3",  0,  2),
+                    Category(0,  "Income",  0,  Category.Type.Income),
+                    Category(0,  "Outcome",  0,  Category.Type.Outcome),
                 ).toList()
                 /*val jsonFileString = getJsonFromAssets(app.applicationContext,"categories.json")
                 val gson = Gson()

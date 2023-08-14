@@ -15,7 +15,7 @@ class CategoryLocalDataSource(application: Application) {
         categoryDao = db.categoryDao()
     }
 
-    fun getCategoryList(categoryType: Int): LiveData<List<Category>> {
+    fun getCategoryList(categoryType: String): LiveData<List<Category>> {
         //read from db
         return categoryDao.getAllWithType(categoryType)
     }

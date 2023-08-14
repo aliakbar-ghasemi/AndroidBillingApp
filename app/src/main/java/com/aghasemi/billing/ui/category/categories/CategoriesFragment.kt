@@ -11,10 +11,10 @@ import com.aghasemi.billing.model.Category
 
 class CategoriesFragment : Fragment() {
     companion object {
-        fun newInstance(categoryType: Int): CategoriesFragment {
+        fun newInstance(categoryType: String): CategoriesFragment {
             val fragment = CategoriesFragment()
             val bundle = Bundle()
-            bundle.putInt("categoryType", categoryType)
+            bundle.putString("categoryType", categoryType)
             fragment.arguments = bundle
             return fragment
         }
@@ -41,13 +41,13 @@ class CategoriesFragment : Fragment() {
 
     private fun updateUi() {
         val bundle = arguments
-        val categoryType = bundle?.getInt("categoryType")
+        val categoryType = bundle?.getString("categoryType")
         if (categoryType != null) {
             getCategoryList(categoryType)
         }
     }
 
-    private fun getCategoryList(categoryType: Int) {
+    private fun getCategoryList(categoryType: String) {
         categoriesViewModel.getCategoryList(categoryType).observe(viewLifecycleOwner) { categoryList ->
             updateCategoryList(categoryList)
         }

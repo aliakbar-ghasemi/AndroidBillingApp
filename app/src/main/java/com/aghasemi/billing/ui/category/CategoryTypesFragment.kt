@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.aghasemi.billing.R
 import com.aghasemi.billing.databinding.FragmentCategoryBinding
+import com.aghasemi.billing.model.Category
 import com.google.android.material.tabs.TabLayoutMediator
 
 class CategoryTypesFragment : Fragment() {
@@ -45,8 +46,8 @@ class CategoryTypesFragment : Fragment() {
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when (CategoryTypesAdapter.typeList[position]) {
-                1 -> tab.text = getString(R.string.income)
-                2 -> tab.text = getString(R.string.outcome)
+                Category.Type.Income -> tab.text = getString(R.string.income)
+                Category.Type.Outcome -> tab.text = getString(R.string.outcome)
             }
         }.attach()
 

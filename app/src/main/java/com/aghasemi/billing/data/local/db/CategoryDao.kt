@@ -11,6 +11,6 @@ interface CategoryDao : BaseDao<Category> {
     fun getAll(): LiveData<List<Category>>
 
     @Query("SELECT * FROM category where type=:type")
-    fun getAllWithType(type: Int): LiveData<List<Category>>
+    fun getAllWithType(type: String): LiveData<List<Category>>
 
 }

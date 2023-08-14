@@ -13,7 +13,7 @@ class CategoriesViewModel(application: Application) : AndroidViewModel(applicati
         categoryRepository = CategoryRepository(application)
     }
 
-    fun getCategoryList(categoryType: Int): LiveData<List<Category>> {
+    fun getCategoryList(categoryType: String): LiveData<List<Category>> {
         return categoryRepository.getCategoryList(categoryType)
     }
 }
