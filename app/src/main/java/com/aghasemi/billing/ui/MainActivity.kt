@@ -1,4 +1,4 @@
-package com.aghasemi.billing
+package com.aghasemi.billing.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +8,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.aghasemi.billing.R
 import com.aghasemi.billing.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         val drawer = binding.drawerLayout
         val navDrawer: NavigationView = binding.navDrawer
-        val bottomNavigationView: BottomNavigationView = binding.appBarMain.contentMain.bottomNavView
+        val bottomNavigationView: BottomNavigationView =
+            binding.appBarMain.contentMain.bottomNavView
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         // Passing each menu ID as a set of Ids because each
@@ -34,20 +37,23 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.nav_gallery
+            R.id.navigation_home,
+            R.id.navigation_dashboard,
+            R.id.navigation_notifications,
+            R.id.nav_category
         )
             .setOpenableLayout(drawer)
             .build()
 
-        /*var appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.nav_gallery
-            )
-        )*/
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
         navDrawer.setupWithNavController(navController)
 
+        //update locale
+        val configuration = resources.configuration
+        configuration.setLayoutDirection(Locale("fa"))
+        resources.updateConfiguration(configuration, resources.displayMetrics)
 
     }
 

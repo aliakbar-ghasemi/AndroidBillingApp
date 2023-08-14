@@ -23,8 +23,8 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.aghasemi.billing.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_category"
+        android:name="com.aghasemi.billing.ui.category.CategoryTypesFragment"
+        android:label="@string/menu_category"
+        tools:layout="@layout/fragment_category" />
 </navigation>
