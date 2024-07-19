@@ -14,9 +14,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 class CategoryTypesFragment : Fragment() {
 
     private var _binding: FragmentCategoryBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,10 +35,10 @@ class CategoryTypesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        updateUi()
+        setupUi()
     }
 
-    private fun updateUi() {
+    private fun setupUi() {
         binding.viewPager.adapter = CategoryTypesAdapter(this)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->

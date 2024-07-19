@@ -1,4 +1,4 @@
-package com.aghasemi.billing.data.repository
+package com.aghasemi.billing.data.repository.category
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -18,5 +18,12 @@ class CategoryLocalDataSource(application: Application) {
     fun getCategoryList(categoryType: String): LiveData<List<Category>> {
         //read from db
         return categoryDao.getAllWithType(categoryType)
+    }
+
+    fun insertCategory(category: Category){
+        return categoryDao.insert(category)
+    }
+    fun deleteCategory(){
+
     }
 }
