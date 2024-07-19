@@ -6,17 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.aghasemi.billing.model.Category
+import com.aghasemi.billing.model.Expense
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [Category::class],
+    entities = [Category::class, Expense::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun categoryDao(): CategoryDao
+    abstract fun expenseDao(): ExpenseDao
 
     companion object {
         @Volatile
