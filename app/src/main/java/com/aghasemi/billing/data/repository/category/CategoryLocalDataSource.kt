@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import com.aghasemi.billing.data.local.db.AppDatabase
 import com.aghasemi.billing.data.local.db.CategoryDao
 import com.aghasemi.billing.model.Category
+import kotlinx.coroutines.flow.Flow
 
 class CategoryLocalDataSource(application: Application) {
 
@@ -15,9 +16,13 @@ class CategoryLocalDataSource(application: Application) {
         categoryDao = db.categoryDao()
     }
 
-    fun getCategoryList(categoryType: String): LiveData<List<Category>> {
+    fun getCategoryListWithType(categoryType: String): LiveData<List<Category>> {
         //read from db
         return categoryDao.getAllWithType(categoryType)
+    }
+
+    suspend fun getAllSuspend(): List<Category> {
+        return categoryDao.getAllSuspend()
     }
 
     fun insertCategory(category: Category){

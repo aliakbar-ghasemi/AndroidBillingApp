@@ -30,7 +30,8 @@ class ExpensesAdapter : RecyclerView.Adapter<ExpensesAdapter.VH>() {
 
     class VH(private var binding: ItemExpenseBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Expense) {
-            binding.txtTitle.text = item.title
+            binding.expense = item
+            //binding.txtTitle.text = item.title
         }
 
     }

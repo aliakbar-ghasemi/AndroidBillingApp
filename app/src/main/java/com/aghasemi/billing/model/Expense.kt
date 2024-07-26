@@ -14,11 +14,11 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-class Expense(
+data class Expense(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     var title: String,
-    var categoryId: Int,
+    var categoryId: Int?,
     var amount: String,
     var date: String
 )

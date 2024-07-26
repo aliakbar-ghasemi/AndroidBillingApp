@@ -14,4 +14,9 @@
     <string name="menu_category">دسته بندی</string>
     <string name="income">درآمد</string>
     <string name="outcome">هزینه</string>
+    <string name="pickCategory">یک دسته بندی انتخاب نمایید</string>
+    <string name="price">قیمت</string>
+    <string name="category">دسته بندی</string>
+    <string name="title">عنوان</string>
+    <string name="date">تاریخ</string>
 </resources>

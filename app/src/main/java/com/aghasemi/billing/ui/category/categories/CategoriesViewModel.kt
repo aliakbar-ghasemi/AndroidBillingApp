@@ -17,7 +17,7 @@ class CategoriesViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     fun getCategoryList(categoryType: String): LiveData<List<Category>> {
-        return categoryRepository.getCategoryList(categoryType)
+        return categoryRepository.getCategoryListWithType(categoryType)
     }
 
     fun insertCategory(category: Category){
