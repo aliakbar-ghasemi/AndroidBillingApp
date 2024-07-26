@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 @Entity
 data class Category(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    val id: Int = -1,
     val title: String,
-    val parentId: Int,
+    val parentId: Int = -1,
     val type: Type
 ) {
     enum class Type {

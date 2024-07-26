@@ -4,15 +4,14 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
+
 @Entity(
-    foreignKeys = [
-        ForeignKey(
-            entity = Category::class,
-            parentColumns = arrayOf("id"),
-            childColumns = arrayOf("categoryId"),
-            onDelete = ForeignKey.NO_ACTION
-        )
-    ]
+    foreignKeys = [ForeignKey(
+        entity = Category::class,
+        parentColumns = arrayOf("id"),
+        childColumns = arrayOf("categoryId"),
+        onDelete = ForeignKey.NO_ACTION
+    )]
 )
 data class Expense(
     @PrimaryKey(autoGenerate = true)

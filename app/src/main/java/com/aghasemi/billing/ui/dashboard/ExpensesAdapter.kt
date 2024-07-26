@@ -1,16 +1,19 @@
 package com.aghasemi.billing.ui.dashboard
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aghasemi.billing.databinding.ItemExpenseBinding
+import com.aghasemi.billing.model.Category
 import com.aghasemi.billing.model.Expense
+import com.aghasemi.billing.model.ExpenseAndCategory
 
 
 class ExpensesAdapter : RecyclerView.Adapter<ExpensesAdapter.VH>() {
-    private var list = emptyList<Expense>()
+    private var list = emptyList<ExpenseAndCategory>()
 
-    fun setList(list: List<Expense>) {
+    fun setList(list: List<ExpenseAndCategory>) {
         this.list = list
     }
 
@@ -29,9 +32,14 @@ class ExpensesAdapter : RecyclerView.Adapter<ExpensesAdapter.VH>() {
     }
 
     class VH(private var binding: ItemExpenseBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Expense) {
-            binding.expense = item
-            //binding.txtTitle.text = item.title
+        fun bind(item: ExpenseAndCategory) {
+            binding.expense = item.expense
+            binding.txtCategory.text = item.category?.title
+            if (item.category?.type == Category.Type.Income){
+                binding.txtAmount.setTextColor(Color.BLUE)
+            } else {
+                binding.txtAmount.setTextColor(Color.RED)
+            }
         }
 
     }

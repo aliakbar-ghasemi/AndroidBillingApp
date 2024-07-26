@@ -1,19 +1,15 @@
 package com.aghasemi.billing.ui.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.aghasemi.billing.databinding.DialogAddCategoryBinding
-import com.aghasemi.billing.databinding.DialogAddExpenseBinding
 import com.aghasemi.billing.databinding.FragmentDashboardBinding
-import com.aghasemi.billing.model.Category
 import com.aghasemi.billing.model.Expense
-import com.aghasemi.billing.ui.category.categories.CategoriesAdapter
+import com.aghasemi.billing.model.ExpenseAndCategory
 
 class DashboardFragment : Fragment() {
 
@@ -42,13 +38,14 @@ class DashboardFragment : Fragment() {
     }
 
     private fun getExpenseList() {
-        dashboardViewModel.getExpenseList()
+        dashboardViewModel.getAllExpenseWithCategory()
             .observe(viewLifecycleOwner) { list ->
+                Log.d("##TAG", "getExpenseList: "+list)
                 updateExpenseList(list)
             }
     }
 
-    private fun updateExpenseList(list: List<Expense>) {
+    private fun updateExpenseList(list: List<ExpenseAndCategory>) {
         val adapter = ExpensesAdapter()
         adapter.setList(list)
         binding.rvExpenses.adapter = adapter
